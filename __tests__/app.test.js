@@ -11,4 +11,21 @@ describe('backend routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('should return an array of recipes', async () => {
+    const recipe = {
+      name: expect.any(String),
+      description: expect.any(String),
+      ingredients: expect.any(Array),
+      instructions: expect.any(Array),
+      tags: expect.any(Array),
+      totalTime: expect.any(String),
+      servings: expect.any(String),
+      image: expect.any(String)
+    };
+    
+    const { body } = await request(app).get('/api/v1/recipes');
+
+    expect(body).toEqual(expect.arrayContaining([recipe]));
+  });
 });
