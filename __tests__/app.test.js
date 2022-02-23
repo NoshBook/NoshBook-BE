@@ -14,6 +14,7 @@ describe('backend routes', () => {
 
   it('should return an array of recipes', async () => {
     const recipe = {
+      id: expect.any(String),
       name: expect.any(String),
       description: expect.any(String),
       ingredients: expect.any(Array),
