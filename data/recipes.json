@@ -2098,53 +2098,6 @@
   "soureURL": "https://www.closetcooking.com/mexican-street-corn-baked-chicken/"
  },
  {
-  "name": "Dill Pickle Chicken Salad",
-  "description": "A creamy chicken salad with plenty of dill pickles!",
-  "ingredients": [
-   "2 cups cooked chicken, shredded or diced",
-   "1 cup dill pickle, diced",
-   "1/2 cup celery, diced",
-   "1/4 cup red onion, finely diced",
-   "1/4 cup green onion, thinly sliced",
-   "1 tablespoon dill, chopped (or 1 teaspoon dried dill)",
-   "1/4 cup mayonnaise",
-   "1/4 cup sour cream",
-   "1 tablespoon dill pickle juice (from jar)",
-   "1 tablespoon dijon mustard",
-   "salt and pepper to taste"
-  ],
-  "instructions": [
-   "Mix the chicken, dill pickle, celery, red onion, green onion, and dill.",
-   "Mix the mayonnaise, sour cream, pickle juice, dijon mustard, salt, and pepper.",
-   "Toss the salad and the dressing until coated and either enjoy right away or chill in the fridge for an hour to overnight"
-  ],
-  "tags": [
-   "20 Minute Meals",
-   "30 Minute Meals",
-   "American",
-   "Appetizer",
-   "Chicken",
-   "Food",
-   "Gluten-free",
-   "Low-carb",
-   "Main Course",
-   "Meal Prep",
-   "Recipe",
-   "Salad",
-   "Sandwich"
-  ],
-  "time": {
-   "prep": "15 minutes",
-   "cook": "15 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": ""
-  },
-  "servings": "4",
-  "soureURL": "https://www.closetcooking.com/dill-pickle-chicken-salad/"
- },
- {
   "name": "Korean BBQ Burgers",
   "description": "Burgers in Korean style BBQ sauce with kimchi mayo! Having just shared recipes for kimchi mayo and Korean BBQ sauce I am using them both in a recipe! Korean BBQ burgers with kimchi mayo! I",
   "ingredients": [
@@ -4025,95 +3978,6 @@
   "soureURL": "https://www.closetcooking.com/lamb-madras/"
  },
  {
-  "name": "Chicken Gnocchi in a Creamy Lemon and Caper Sauce",
-  "description": "Chicken and gnocchi (aka potato dumplings) in a creamy lemon, butter and caper sauce!",
-  "ingredients": [
-   "1 tablespoon oil",
-   "2 tablespoons butter",
-   "1 pound boneless and skinless chicken breasts (or thighs), cut into bite sized pieces",
-   "1 onion, diced",
-   "3 cloves garlic, chopped",
-   "2 cups chicken broth",
-   "2 tablespoons capers, drained",
-   "1 pound gnocchi",
-   "1/2 cup cream",
-   "1/4 cup parmigiano reggiano (parmesan cheese), grated",
-   "4 cup baby spinach",
-   "2 tablespoons lemon juice",
-   "salt and pepper to taste",
-   "2 tablespoons parsley, chopped"
-  ],
-  "instructions": [
-   "Heat the oil and melt the butter in a large pan over medium heat, add the chicken and cook until lightly golden brown on all sides, about 10 minutes.",
-   "Add the onion and cook until tender, about 5 minutes.",
-   "Add the garlic and cook until fragrant, about a minute.",
-   "Add 1/4 cup of the chicken broth and deglaze the pan by scraping up any brown bits from the bottom of the pan with a wooden spoon as the broth sizzles.",
-   "Add the remaining broth, the capers and gnocchi, bring to a boil, reduce the heat and simmer for 5 minutes.",
-   "Add the cream, parmesan, and baby spinach and cook until the cheese has melted and the spinach has wilted, about a minute.",
-   "Add the lemon juice and season with salt and pepper to taste.",
-   "Mix in the parsley and enjoy!"
-  ],
-  "tags": [
-   "Chicken",
-   "Food",
-   "Gluten-free",
-   "Main Course",
-   "One-Pan",
-   "Recipe"
-  ],
-  "time": {
-   "prep": "10 minutes",
-   "cook": "25 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": "35 minutes"
-  },
-  "servings": "6",
-  "soureURL": "https://www.closetcooking.com/chicken-gnocchi-in-a-creamy-lemon-and-caper-sauce/"
- },
- {
-  "name": "Skillet Butter and Garlic Mushrooms and Cauliflower",
-  "description": "A stove top skillet mushroom and cauliflower side dish in plenty of butter and garlic!",
-  "ingredients": [
-   "2 tablespoons oil",
-   "2 tablespoons butter",
-   "1 pound whole button mushrooms",
-   "1/2 small head cauliflower, cut into florets",
-   "1 small onion, diced",
-   "4 cloves garlic, chopped",
-   "1 teaspoon thyme, chopped (or 1/2 teaspoon dried thyme)",
-   "1 pinch red pepper flakes (optional)",
-   "salt and pepper to taste"
-  ],
-  "instructions": [
-   "Heat the oil and melt the butter in a large skillet over medium-high heat.",
-   "Add the mushrooms and cook until they release their liquid and it cooks off, about 10-15 minutes.",
-   "Add the cauliflower and onion and cook until the cauliflower and mushrooms are lightly golden brown, about 10-15 minutes.",
-   "Add the garlic, thyme and red pepper flakes and cook until fragrant, about a minute.",
-   "Season with salt and pepper to taste."
-  ],
-  "tags": [
-   "Cauliflower",
-   "Food",
-   "Gluten-free",
-   "Mushroom",
-   "One-Pan",
-   "Recipe",
-   "Side Dish"
-  ],
-  "time": {
-   "prep": "10 minutes",
-   "cook": "30 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": "40 minutes"
-  },
-  "servings": "6",
-  "soureURL": "https://www.closetcooking.com/skillet-butter-and-garlic-mushrooms-and-cauliflower/"
- },
- {
   "name": "Spinach and Feta Cheese Tortellini",
   "description": "https://www.closetcooking.com/spinach-and-feta-cheese-tortellini/",
   "ingredients": [
@@ -4351,46 +4215,6 @@
   "soureURL": "https://www.closetcooking.com/fried-cabbage/"
  },
  {
-  "name": "Tuscan Baked Chicken",
-  "description": "A quick and easy Mediterranean style baked chicken dish with spinach, artichoke hearts and sundried tomatoes.",
-  "ingredients": [
-   "10 ounces spinach (or baby spinach)",
-   "1 pound boneless and skinless chicken breasts (or thighs)",
-   "1/2 teaspoon oregano",
-   "salt and pepper to taste",
-   "1 (14 ounce) can artichoke hearts, quartered or chopped",
-   "2 ounces sun dried tomatoes, sliced",
-   "1 cup mozzarella cheese, shredded",
-   "1/4 cup parmigiano reggiano (parmesan cheese), grated"
-  ],
-  "instructions": [
-   "Place half of the spinach on the bottom of a large baking dish, top with the chicken seasoned with oregano, salt and pepper.",
-   "Sprinkle on the artichoke hearts, sundried tomatoes, the remaining spinach, mozzarella, and parmesan.",
-   "Bake in a preheated 350F/180C oven until the cheese is melted and the chicken is cooked through, about 25-35 minutes."
-  ],
-  "tags": [
-   "30 Minute Meals",
-   "Chicken",
-   "Food",
-   "Gluten-free",
-   "Low-carb",
-   "Main Course",
-   "Mediterranean",
-   "One-Pan",
-   "Recipe"
-  ],
-  "time": {
-   "prep": "5 minutes",
-   "cook": "25 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": "30 minutes"
-  },
-  "servings": "4",
-  "soureURL": "https://www.closetcooking.com/tuscan-baked-chicken/"
- },
- {
   "name": "Dill Pickle Soup",
   "description": "A simple comforting soup starring dill pickles!",
   "ingredients": [
@@ -4536,57 +4360,6 @@
   "servings": "6",
   "image": "https://www.closetcooking.com/wp-content/uploads/2021/02/Jamaican-Jerk-Beef-and-Bean-Chili-1200-2150.jpg",
   "soureURL": "https://www.closetcooking.com/jamaican-jerk-beef-and-bean-chili/"
- },
- {
-  "name": "Chicken Pot Pie Soup",
-  "description": "A comforting soup with all of the flavours of chicken pot pie!",
-  "ingredients": [
-   "4 tablespoons butter (or bacon grease)",
-   "1 cup onion, diced",
-   "1 cup carrot, diced",
-   "1 cup celery, diced",
-   "3 cloves garlic, chopped",
-   "1 teaspoon sage, chopped (or 1/2 teaspoon dried sage)",
-   "1 teaspoon rosemary, chopped (or 1/2 teaspoon dried rosemary)",
-   "1/4 teaspoon thyme, chopped (or 1/8 teaspoon dried thyme)",
-   "4 tablespoons flour (rice flour for gluten-free)",
-   "6 cups chicken broth",
-   "2 cups chicken, cooked and shredded/diced",
-   "2 cups potatoes, diced",
-   "1 cup corn",
-   "1 cup peas",
-   "1/2 cup heavy/whipping cream",
-   "salt and pepper to taste",
-   "1 tablespoon parsley, chopped (optional)"
-  ],
-  "instructions": [
-   "Melt the butter in a large saucepan over medium heat, add the onion, carrots and celery and cook until tender, about 10-15 minutes.",
-   "Add the garlic, sage, rosemary, thyme and cook until fragrant, about a minute.",
-   "Sprinkle in the flour, mix well and cook for a minute.",
-   "Add the broth, chicken and potatoes, bring to a boil, reduce the heat and simmer until the potatoes are tender, about 15-20 minutes.",
-   "Add the corn, peas and cream and cook until the corn and peas are warmed, about 3 minutes.",
-   "Season with salt and pepper to taste and serve, garnished with fresh chopped parsley!"
-  ],
-  "tags": [
-   "American",
-   "Chicken",
-   "Crockpot",
-   "Food",
-   "Gluten-free",
-   "One-Pot",
-   "Recipe",
-   "Soup"
-  ],
-  "time": {
-   "prep": "15 minutes",
-   "cook": "45 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": "1 hour"
-  },
-  "servings": "8",
-  "soureURL": "https://www.closetcooking.com/chicken-pot-pie-soup/"
  },
  {
   "name": "Philly Cheesesteak Meatloaf",
@@ -4782,43 +4555,6 @@
   "servings": "4",
   "image": "https://www.closetcooking.com/wp-content/uploads/2021/02/General-Tsos-Chicken-1200-1046.jpg",
   "soureURL": "https://www.closetcooking.com/general-tsos-chicken/"
- },
- {
-  "name": "Korean Steak Nacho Cheese Fries",
-  "description": "Fries topped with a spicy gochujang cheese sauce, Korean style steak, kimchi and guacamole!",
-  "ingredients": [
-   "1 1/2 pounds french fries, cooked",
-   "1 cup korean steak, cooked and sliced thinly",
-   "1 cup gochujang nacho cheese sauce, warm",
-   "1/2 cup kimchi, chopped",
-   "1/2 cup guacamole",
-   "2 green onions, thinly sliced",
-   "1 jalapeno, thinly sliced",
-   "1 tablespoon cilantro, chopped"
-  ],
-  "instructions": [
-   "Place the fries onto a large serving dish, top with the cheese sauce, steak, kimchi, guacamole, green onions, jalapeno, cilantro"
-  ],
-  "tags": [
-   "Appetizer",
-   "Avocado",
-   "Beef",
-   "Food",
-   "Gluten-free",
-   "Korean",
-   "Main Course",
-   "Recipe"
-  ],
-  "time": {
-   "prep": "10 minutes",
-   "cook": "10 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": ""
-  },
-  "servings": "4",
-  "soureURL": "https://www.closetcooking.com/korean-steak-nacho-cheese-fries/"
  },
  {
   "name": "Gochujang Nacho Cheese Sauce",
@@ -5038,55 +4774,6 @@
   "servings": "6",
   "image": "https://www.closetcooking.com/wp-content/uploads/2021/01/Frito-Pie-1200-9079.jpg",
   "soureURL": "https://www.closetcooking.com/frito-pie/"
- },
- {
-  "name": "Thai Basil Chicken",
-  "description": "A quick and easy Thai style chicken stir fry with plenty of basil and cashews!",
-  "ingredients": [
-   "1 tablespoon oil",
-   "1 pound boneless and skinless chicken breasts (or thighs), cut into bite sized pieces",
-   "2 shallots, diced (or 1/4 red onion, finely diced)",
-   "1 red pepper, diced",
-   "4 cloves garlic, chopped",
-   "1/2 cup chicken broth (or water)",
-   "2 tablespoons fish sauce (or soy sauce or tamari)",
-   "1 tablespoon palm sugar (or brown sugar)",
-   "1 lime, juice and zest (about 2 tablespoons of juice)",
-   "2 birds eye chilies, thinly sliced (or 1 tablespoon chili sauce such as sriracha)",
-   "1/4 teaspoon turmeric",
-   "1 cup basil (preferably Thai basil)",
-   "1/2 cup cashew, lightly toasted"
-  ],
-  "instructions": [
-   "Heat the oil in a large pan over medium-high heat, add the chicken and saute until lightly golden brown and cooked through, about 7-10 minutes.",
-   "Add the shallots and red pepper and cook until tender, about 2-3 minutes.",
-   "Add the garlic and cook until fragrant, about a minute.",
-   "Add the broth and deglaze the pan by scraping up and brown bits from the bottom of the pan as the broth sizzles.",
-   "Add the fish sauce, sugar, lime juice and zest, chilies, and turmeric and cook for a minute.",
-   "Mix in the basil and cashews and enjoy!"
-  ],
-  "tags": [
-   "20 Minute Meals",
-   "30 Minute Meals",
-   "Chicken",
-   "Food",
-   "Gluten-free",
-   "Low-carb",
-   "Main Course",
-   "Meal Prep",
-   "Recipe",
-   "Thai"
-  ],
-  "time": {
-   "prep": "5 minutes",
-   "cook": "15 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": "20 minutes"
-  },
-  "servings": "4",
-  "soureURL": "https://www.closetcooking.com/thai-basil-chicken/"
  },
  {
   "name": "One-pan Beef Stroganoff",
@@ -5623,36 +5310,6 @@
   "soureURL": "https://www.closetcooking.com/giant-mozzarella-stuffed-meatballs/"
  },
  {
-  "name": "Homemade Tonkatsu Sauce",
-  "description": "An easy homemade tonkatsu sauce using ingredients commonly found in your pantry.",
-  "ingredients": [
-   "1/4 cup Worcestershire sauce",
-   "1/4 cup ketchup",
-   "2 teaspoons soy sauce"
-  ],
-  "instructions": [
-   "Mix everything and enjoy!"
-  ],
-  "tags": [
-   "Condiment",
-   "Food",
-   "Gluten-free",
-   "Japanese",
-   "Recipe",
-   "Sauce"
-  ],
-  "time": {
-   "prep": "5 minutes",
-   "cook": "5 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": ""
-  },
-  "servings": "4",
-  "soureURL": "https://www.closetcooking.com/homemade-tonkatsu-sauce/"
- },
- {
   "name": "Mexican Beef and Bean Skillet Rice",
   "description": "A one-pan (skillet) Mexican style rice with beef and beans that's topped with plenty of melted cheese!",
   "ingredients": [
@@ -5992,52 +5649,6 @@
   "servings": "4",
   "image": "https://www.closetcooking.com/wp-content/uploads/2020/09/Skillet-Chicken-in-Roasted-Red-Pepper-Sauce-1200-8206.jpg",
   "soureURL": "https://www.closetcooking.com/skillet-chicken-in-roasted-red-pepper-sauce/"
- },
- {
-  "name": "Roasted Red Pepper Sauce",
-  "description": "A quick and easy homemade roasted red pepper sauce, perfect for a simple pasta dinner!",
-  "ingredients": [
-   "3 red bell peppers (or shepherd peppers), cut in half and seeds/stems removed",
-   "1 small red onion, quarted",
-   "2-4 large cloves garlic",
-   "1 tablespoon extra virgin olive oil",
-   "1 (14 ounce) can tomatoes (whole, diced, crushed or pureed)",
-   "1 teaspoon balsamic vinegar",
-   "1 teaspoon oregano",
-   "1/2 teaspoon salt",
-   "1/2 teaspoon pepper"
-  ],
-  "instructions": [
-   "Preheat the oven to 450F/230C.",
-   "Place the peppers, onion wedges and whole cloves of garlic on a baking sheet with the cut side of the peppers facing down.",
-   "Place the baking sheet on the top shelf in the oven and broil until the skin of the peppers has blackened, about 10 minutes. *",
-   "Place the peppers in a zip-lock bag or other sealable container, seal and let them cool until you can handle them, about 20 minutes.",
-   "Remove the skins from the peppers, by pinching them off.",
-   "Place everything in a food processor and process until smooth."
-  ],
-  "tags": [
-   "6 Ingredients",
-   "Food",
-   "Gluten-free",
-   "Italian",
-   "Low-carb",
-   "Main Course",
-   "Pasta",
-   "Recipe",
-   "Sauce",
-   "Vegetable",
-   "Vegetarian"
-  ],
-  "time": {
-   "prep": "5 minutes",
-   "cook": "10 minutes",
-   "active": "",
-   "inactive": "",
-   "ready": "",
-   "total": "20 minutes"
-  },
-  "servings": "4",
-  "soureURL": "https://www.closetcooking.com/roasted-red-pepper-sauce/"
  },
  {
   "name": "Thai Style Sweet Chili Ribs",
