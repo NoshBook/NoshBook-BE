@@ -27,6 +27,7 @@ describe('backend routes', () => {
     
     const { body } = await request(app).get('/api/v1/recipes');
 
+    console.log(body[0]);
     expect(body).toEqual(expect.arrayContaining([recipe]));
   });
 });
