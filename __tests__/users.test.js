@@ -52,7 +52,7 @@ describe('NoshBook user routes', () => {
   });
 
   it('clears a session', async () => {
-    const res = await agent.delete(`/api/v1/users/sessions`);
+    const res = await agent.delete('/api/v1/users/sessions');
     expect(res.body).toEqual({
       success: true,
       message: 'Signed out successfully!',
