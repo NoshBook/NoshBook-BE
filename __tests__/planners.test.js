@@ -12,6 +12,13 @@ const testPlanner = {
   userId: 1,
 };
 
+const testPlannerReceive = {
+  day: 'tuesday',
+  recipeId: '3',
+  userId: '1',
+  id: expect.any(String),
+};
+
 const mockUser = {
   username: 'bob',
   password: 'bob',
@@ -30,12 +37,7 @@ describe('planner routes', () => {
   it('should create a new planner day recipe association', async () => {
     const res = await agent.post('/api/v1/planners').send(testPlanner);
 
-    expect(res.body).toEqual({
-      day: 'tuesday',
-      recipeId: '3',
-      userId: '1',
-      id: expect.any(String),
-    });
+    expect(res.body).toEqual(testPlannerReceive);
   });
 
   it('should get all recipes in planner for a given user', async () => {
@@ -44,5 +46,15 @@ describe('planner routes', () => {
     const recipes = await Planner.getRecipesByUser(1);
 
     expect(res.body).toEqual(recipes);
+  });
+
+  it('should delete all recipes from a planner', async () => {
+    const seedPlannerData = [
+      { id: expect.any(String), recipe_id: '1', day: 'monday', user_id: '1' },
+      { id: expect.any(String), recipe_id: '2', day: 'monday', user_id: '1' },
+    ];
+    const { body } = await agent.delete('/api/v1/planners/clear');
+
+    expect(body).toEqual(seedPlannerData);
   });
 });
