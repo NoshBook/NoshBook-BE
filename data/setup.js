@@ -1,5 +1,6 @@
 const fs = require('fs');
 const bcrypt = require('bcrypt');
+const dblog = require('../lib/utils/dblog.js');
 
 module.exports = async (pool) => {
   const production = process.env.NODE_ENV === 'production';
@@ -23,7 +24,7 @@ module.exports = async (pool) => {
     WHERE id = 1
   `, [bobPasswordHash]);
 
-  console.log('Table setup complete');
+  dblog('Table setup complete');
 
   const recipeFile = fs.readFileSync(`${__dirname}/./recipes.json`);
   const recipes = JSON.parse(recipeFile.toString());
@@ -62,9 +63,9 @@ module.exports = async (pool) => {
       }));
 
     } catch (e) {
-      console.log(e);
-      console.log(recipe);
+      dblog(e);
+      dblog(recipe);
     }
   }));
-  console.log('Recipe data loaded.');
+  dblog('Recipe data loaded.');
 };
