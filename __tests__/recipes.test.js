@@ -22,11 +22,15 @@ describe('backend routes', () => {
       tags: expect.any(Array),
       totalTime: expect.any(String),
       servings: expect.any(String),
-      image: expect.any(String)
+      image: expect.any(String),
+      rating: expect.any(Number),
     };
-    
-    const { body } = await request(app).get('/api/v1/recipes');
 
+    const { body } = await request(app).get(
+      `/api/v1/recipes?page=${1}&quantity=${20}`
+    );
+
+    expect(body[0].rating > body[1].rating > body[2].rating).toBe(true);
     expect(body).toEqual(expect.arrayContaining([recipe]));
   });
 });
