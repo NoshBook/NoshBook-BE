@@ -1,4 +1,5 @@
 const fs = require('fs');
+const bcrypt = require('bcrypt');
 
 module.exports = async (pool) => {
   const production = process.env.NODE_ENV === 'production';
@@ -9,6 +10,19 @@ module.exports = async (pool) => {
 
   const setupFile = fs.readFileSync(`${__dirname}/../sql/setup.sql`);
   await pool.query(setupFile.toString());
+  console.log('Table setup complete');
+  
+  const bobPasswordHash = await bcrypt.hash(
+    'bob',
+    Number(process.env.SALT_ROUNDS)
+  );
+
+  await pool.query(`
+    UPDATE app_user
+    SET password_hash = $1
+    WHERE id = 1
+  `, [bobPasswordHash]);
+
   console.log('Table setup complete');
 
   const recipeFile = fs.readFileSync(`${__dirname}/./recipes.json`);
