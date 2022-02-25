@@ -2,7 +2,9 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Planner = require('../lib/models/Planner');
+const Planner = require('../lib/models/Planner.js');
+
+const agent = request.agent(app);
 
 const testPlanner = {
   day: 'tuesday',
@@ -10,8 +12,14 @@ const testPlanner = {
   userId: 1,
 };
 
+const mockUser = {
+  username: 'bob',
+  password: 'bob',
+};
+
 describe('planner routes', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
+    await agent.post('/api/v1/users/sessions').send(mockUser);
     return setup(pool);
   });
 
@@ -20,7 +28,7 @@ describe('planner routes', () => {
   });
 
   it('should create a new planner day recipe association', async () => {
-    const res = await request(app).post('/api/v1/planners').send(testPlanner);
+    const res = await agent.post('/api/v1/planners').send(testPlanner);
 
     expect(res.body).toEqual({
       day: 'tuesday',
@@ -31,22 +39,10 @@ describe('planner routes', () => {
   });
 
   it('should get all recipes in planner for a given user', async () => {
-    const res = await request(app).get('/api/v1/planners/1');
+    const res = await agent.get('/api/v1/planners');
 
-    expect(res.body).toEqual([
-      {
-        day: 'monday',
-        recipes: [
-          {
-            id: 1,
-            name: 'banana bread',
-          },
-          {
-            id: 2,
-            name: 'corndog',
-          },
-        ],
-      },
-    ]);
+    const recipes = await Planner.getRecipesByUser(1);
+
+    expect(res.body).toEqual(recipes);
   });
 });
