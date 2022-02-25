@@ -5,12 +5,12 @@ module.exports = async (pool) => {
   const production = process.env.NODE_ENV === 'production';
   const resetOkay = process.env.DB_RESET_OK === 'true';
   if (production && !resetOkay) {
-    throw new Error('Attempting to reset deployed db!! Use `heroku run DB_RESET_OK=true npm run setup-db` if this was intentional.');
+    throw new Error('Attempting to reset deployed db!! Use `heroku run DB_RESET_OK=true npm run <the command you just ran>` if this was intentional.');
   }
 
   const setupFile = fs.readFileSync(`${__dirname}/../sql/setup.sql`);
+
   await pool.query(setupFile.toString());
-  console.log('Table setup complete');
   
   const bobPasswordHash = await bcrypt.hash(
     'bob',
