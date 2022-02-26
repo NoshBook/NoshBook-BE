@@ -97,4 +97,46 @@ describe('shopping list routes', () => {
     const existingListRes = await agent.get('/api/v1/shoppinglist');
     expect(existingListRes.body).toEqual(expect.arrayContaining(expected));
   });
+
+  it('should update the is_checked value on the shopping list', async () => {
+    const agent = request.agent(app);
+    await agent.post('/api/v1/users/sessions').send({
+      username: 'bob',
+      password: 'bob'
+    });
+
+    const expected = [
+      {
+        id: '1',
+        ingredient: 'banana',
+        isChecked: false
+      },
+      {
+        id: '2',
+        ingredient: 'bread',
+        isChecked: false
+      },
+      {
+        id: '3',
+        ingredient: 'corn',
+        isChecked: false
+      },
+      {
+        id: '4',
+        ingredient: 'dog',
+        isChecked: false
+      }
+    ];
+
+    const generateRes = await agent.get('/api/v1/shoppinglist/new');
+
+    expect(generateRes.body).toEqual(expect.arrayContaining(expected));
+
+    const putRes = await agent.put('/api/v1/shoppinglist/item/1').send({
+      isChecked: true
+    });
+
+    expected[0].isChecked = true;
+    expect(putRes.body).toEqual(expect.arrayContaining(expected));
+  });
 });
