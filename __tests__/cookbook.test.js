@@ -11,7 +11,7 @@ const mockUser = {
   password: 'bob',
 };
 
-describe('recipe routes', () => {
+describe('cookbook routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
