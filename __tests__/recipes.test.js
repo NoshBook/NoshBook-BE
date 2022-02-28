@@ -33,4 +33,10 @@ describe('recipe routes', () => {
     expect(body[0].rating > body[1].rating > body[2].rating).toBe(true);
     expect(body).toEqual(expect.arrayContaining([recipe]));
   });
+
+  it('should return a recipe by id', async () => {
+    const { body } = await request(app).get('/api/v1/recipes/1');
+
+    expect(body.name).toEqual('banana bread');
+  });
 });
