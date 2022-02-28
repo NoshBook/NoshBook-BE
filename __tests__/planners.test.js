@@ -73,6 +73,7 @@ describe('planner routes', () => {
         recipes: [
           {
             id: 1,
+            recipeId: 1,
             name: 'banana bread',
           },
         ],
