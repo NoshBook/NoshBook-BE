@@ -60,4 +60,23 @@ describe('cookbook routes', () => {
       ])
     );
   });
+
+  it('should remove a recipe in a cookbook according to the recipe id and user id', async () => {
+    await agent.post('/api/v1/users/sessions').send(mockUser);
+
+    await agent.post('/api/v1/cookbooks/add/').send({ userId: 1, recipeId: 1 });
+    await agent.post('/api/v1/cookbooks/add/').send({ userId: 1, recipeId: 2 });
+    await agent.delete('/api/v1/cookbooks/delete/2');
+
+    const userrecipesincookbook = await agent.get('/api/v1/cookbooks/1');
+    const actual = userrecipesincookbook.body;
+
+    expect(actual).toEqual([
+      {
+        id: expect.any(String),
+        userId: '1',
+        recipeId: '1',
+      },
+    ]);
+  });
 });
