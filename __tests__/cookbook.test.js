@@ -24,7 +24,9 @@ describe('cookbook routes', () => {
     // login user to retrieve a cookie
     await agent.post('/api/v1/users/sessions').send(mockUser);
 
-    const addRecipeToCookbookRes = await agent.get('/api/v1/cookbooks/add/1');
+    const addRecipeToCookbookRes = await agent
+      .post('/api/v1/cookbooks/add/')
+      .send({ userId: 1, recipeId: 1 });
     const actual = addRecipeToCookbookRes.body;
 
     expect(actual).toEqual({
