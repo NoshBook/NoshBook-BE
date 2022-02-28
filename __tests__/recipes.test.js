@@ -48,4 +48,10 @@ describe('recipe routes', () => {
     // returning array contains objects
     expect(body).toEqual(expect.arrayContaining([expect.any(Object)]));
   });
+
+  it('should return a recipe by id', async () => {
+    const { body } = await request(app).get('/api/v1/recipes/1');
+
+    expect(body.name).toEqual('banana bread');
+  });
 });
