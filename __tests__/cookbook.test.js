@@ -35,4 +35,29 @@ describe('cookbook routes', () => {
       recipeId: '1',
     });
   });
+
+  it('should return recipes in a cookbook according to the user id', async () => {
+    await agent.post('/api/v1/users/sessions').send(mockUser);
+
+    await agent.post('/api/v1/cookbooks/add/').send({ userId: 1, recipeId: 1 });
+    await agent.post('/api/v1/cookbooks/add/').send({ userId: 1, recipeId: 2 });
+
+    const userrecipesincookbook = await agent.get('/api/v1/cookbooks/1');
+    const actual = userrecipesincookbook.body;
+
+    expect(actual).toEqual(
+      expect.arrayContaining([
+        {
+          id: expect.any(String),
+          userId: '1',
+          recipeId: '1',
+        },
+        {
+          id: expect.any(String),
+          userId: '1',
+          recipeId: '2',
+        },
+      ])
+    );
+  });
 });
