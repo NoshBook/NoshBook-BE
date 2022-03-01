@@ -14,6 +14,7 @@ const mockRecipe = {
   servings: expect.any(String),
   image: expect.any(String),
   rating: expect.any(Number),
+  ratingsCount: expect.any(Number)
 };
 
 describe('recipe routes', () => {
@@ -53,5 +54,18 @@ describe('recipe routes', () => {
     const { body } = await request(app).get('/api/v1/recipes/1');
 
     expect(body.name).toEqual('banana bread');
+  });
+
+  it('should correctly update the rating on a recipe', async () => {
+    const agent = request.agent(app);
+    await agent.post('/api/v1/users/sessions').send({ username: 'bob', password: 'bob' });
+
+    await agent.post('/api/v1/recipes/3/ratings').send({ rating: 5 });
+    const getRes1 = await agent.get('/api/v1/recipes/3');
+    expect(getRes1.body.rating).toEqual(5);
+
+    await agent.post('/api/v1/recipes/3/ratings').send({ rating: 4 });
+    const getRes2 = await agent.get('/api/v1/recipes/3');
+    expect(getRes2.body.rating).toEqual(4.5);
   });
 });
