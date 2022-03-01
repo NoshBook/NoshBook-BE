@@ -2,16 +2,10 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const dblog = require('../lib/utils/dblog.js');
 
-module.exports = async (pool) => {
-  const production = process.env.NODE_ENV === 'production';
-  const resetOkay = process.env.DB_RESET_OK === 'true';
-  if (production && !resetOkay) {
-    throw new Error('Attempting to reset deployed db!! Use `heroku run DB_RESET_OK=true npm run <the command you just ran>` if this was intentional.');
-  }
+async function loadTestData(pool) {
+  const testDataFile = fs.readFileSync(`${__dirname}/../sql/loadTestData.sql`);
 
-  const setupFile = fs.readFileSync(`${__dirname}/../sql/setup.sql`);
-
-  await pool.query(setupFile.toString());
+  await pool.query(testDataFile.toString());
   
   const bobPasswordHash = await bcrypt.hash(
     'bob',
@@ -25,6 +19,19 @@ module.exports = async (pool) => {
   `, [bobPasswordHash]);
 
   dblog('Table setup complete');
+}
+
+module.exports = async (pool) => {
+  const production = process.env.NODE_ENV === 'production';
+  const resetOkay = process.env.DB_RESET_OK === 'true';
+  if (production && !resetOkay) {
+    throw new Error('Attempting to reset deployed db!! Use `heroku run DB_RESET_OK=true npm run <the command you just ran>` if this was intentional.');
+  }
+
+  //Prevents bob and his dog corn from being on the live site.
+  if(!production) {
+    loadTestData(pool);
+  }
 
   const recipeFile = fs.readFileSync(`${__dirname}/./recipes.json`);
   const recipes = JSON.parse(recipeFile.toString());
