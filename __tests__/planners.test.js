@@ -85,4 +85,15 @@ describe('planner routes', () => {
     expect(body).toEqual(deletedRecipe);
     expect(actualRemaining).toEqual(remainingRecipe);
   });
+
+  it('should get a random recipe', async () => {
+    const recipeShape = {
+      id: expect.any(String),
+      name: expect.any(String),
+    };
+
+    const { body } = await agent.get('/api/v1/planners/random');
+
+    expect(body).toEqual(recipeShape);
+  });
 });
