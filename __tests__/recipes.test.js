@@ -117,7 +117,6 @@ describe('recipe routes', () => {
 
     const cookBookRes = await agent.get('/api/v1/cookbooks/1');
 
-    console.log(cookBookRes.body);
     const cbRecipes = await Promise.all(cookBookRes.body.map(async (cb) => {
       const recipeRes = await agent.get(`/api/v1/recipes/${cb.id}`);
       return recipeRes.body;
