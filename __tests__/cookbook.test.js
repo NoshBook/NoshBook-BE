@@ -94,4 +94,22 @@ describe('cookbook routes', () => {
       },
     ]);
   });
+
+  it('should return an array of recipes ranked by cookbook id according to the user id', async () => {
+    // login user to retrieve a cookie
+    await agent.post('/api/v1/users/sessions').send(mockUser);
+
+    const { body } = await agent.get(
+      `/api/v1/cookbooks/pagination?page=1&quantity=20`
+    );
+
+    // Only applicable if more recipes exist in DB for bob
+    // expect(body[0].cookbookId < body[1].cookbookId < body[2].cookbookId).toBe(
+    //   true
+    // );
+
+    expect(body.length <= 20).toEqual(true);
+    expect(body[0].ownerId).toEqual('1');
+    expect(body).toEqual(expect.arrayContaining([expect.any(Object)]));
+  });
 });
