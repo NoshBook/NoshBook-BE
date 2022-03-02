@@ -10,11 +10,12 @@ const mockRecipe = {
   ingredients: expect.any(Array),
   instructions: expect.any(Array),
   tags: expect.any(Array),
-  totalTime: expect.any(String),
+  totalTime: null,
   servings: expect.any(String),
   image: expect.any(String),
   rating: expect.any(Number),
-  ratingsCount: expect.any(Number)
+  ratingsCount: expect.any(Number),
+  sourceUrl: null,
 };
 
 describe('recipe routes', () => {
@@ -58,7 +59,9 @@ describe('recipe routes', () => {
 
   it('should correctly update the rating on a recipe', async () => {
     const agent = request.agent(app);
-    await agent.post('/api/v1/users/sessions').send({ username: 'bob', password: 'bob' });
+    await agent
+      .post('/api/v1/users/sessions')
+      .send({ username: 'bob', password: 'bob' });
 
     await agent.post('/api/v1/recipes/3/ratings').send({ rating: 5 });
     const getRes1 = await agent.get('/api/v1/recipes/3');
