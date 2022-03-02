@@ -10,11 +10,22 @@ const mockRecipe = {
   ingredients: expect.any(Array),
   instructions: expect.any(Array),
   tags: expect.any(Array),
-  totalTime: expect.any(String),
+  totalTime: null,
   servings: expect.any(String),
   image: expect.any(String),
   rating: expect.any(Number),
   ratingsCount: expect.any(Number)
+};
+
+const testRecipe = {
+  name: 'bananabread',
+  ingredients: ['bread', 'banana'],
+  instructions: ['insert piece of banana into bread', 'repeat until out of banana'],
+  tags: ['corn', 'bread', 'vegan', 'gluten free', 'non gmo'],
+  description: 'an advanced recipe for skilled cooks',
+  totalTime: '2',
+  servings: 'sure',
+  image: 'picture.com/picture2'
 };
 
 describe('recipe routes', () => {
@@ -67,5 +78,46 @@ describe('recipe routes', () => {
     await agent.post('/api/v1/recipes/3/ratings').send({ rating: 4 });
     const getRes2 = await agent.get('/api/v1/recipes/3');
     expect(getRes2.body.rating).toEqual(4.5);
+  });
+
+  it('should edit a user owned recipe in their cookbook', async () => {
+    const agent = request.agent(app);
+    await agent.post('/api/v1/users/sessions').send({ username: 'bob', password: 'bob' });
+
+    await agent.put('/api/v1/recipes/1').send({ recipe: testRecipe });
+    
+    const getRes1 = await agent.get('/api/v1/recipes/1'); 
+    expect(getRes1.body).toEqual(expect.objectContaining(testRecipe));
+  });
+
+  it('should throw an error when a user edits a recipe that\'s not in their cookbook', async () => {
+    const agent = request.agent(app);
+    await agent.post('/api/v1/users/sessions').send({ username: 'bob', password: 'bob' });
+    
+    const res = await agent.put('/api/v1/recipes/2').send({ recipe: testRecipe });
+    expect(res.statusCode).toBe(500);
+  });
+
+  it('should duplicate a recipe and replace it in their cookbook if they edit someone elses recipe', async () => {
+    const agent = request.agent(app);
+    await agent.post('/api/v1/users/sessions').send({ username: 'bob', password: 'bob' });
+
+    await agent.post('/api/v1/cookbooks/add').send({
+      recipeId: 2,
+      userId: 1
+    });
+
+    const res = await agent.put('/api/v1/recipes/2').send({ recipe: testRecipe });
+    expect(res.body.message).toBe('success');
+    expect(res.body.recipeId).not.toBe('2');
+    expect(res.body.recipeId).not.toBe(2);
+
+    const cookBookRes = await agent.get('/api/v1/cookbooks/1');
+
+    const cbRecipes = await Promise.all(cookBookRes.body.map(async (cb) => {
+      const recipeRes = await agent.get(`/api/v1/recipes/${cb.recipeId}`);
+      return recipeRes.body;
+    }));
+    expect(cbRecipes[1]).toEqual(expect.objectContaining(testRecipe));
   });
 });

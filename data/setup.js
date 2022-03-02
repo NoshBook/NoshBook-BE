@@ -28,9 +28,12 @@ module.exports = async (pool) => {
     throw new Error('Attempting to reset deployed db!! Use `heroku run DB_RESET_OK=true npm run <the command you just ran>` if this was intentional.');
   }
 
+  const setupFile = fs.readFileSync(`${__dirname}/../sql/setup.sql`);
+  await pool.query(setupFile.toString());
+
   //Prevents bob and his dog corn from being on the live site.
   if(!production) {
-    loadTestData(pool);
+    await loadTestData(pool);
   }
 
   const recipeFile = fs.readFileSync(`${__dirname}/./recipes.json`);
@@ -38,37 +41,17 @@ module.exports = async (pool) => {
   await Promise.all(recipes.map(async (recipe) => {
     try {
       const { rows } = await pool.query(`
-        INSERT INTO recipe (
-          name,
-          description,
-          instructions,
-          tags,
-          servings,
-          image,
-          total_time,
-          source_url)
+        INSERT INTO recipe (name, description, instructions, tags,
+        servings, image, total_time, owner_id)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-        RETURNING id
-      `, [
-        recipe.name,
-        recipe.description,
-        recipe.instructions,
-        recipe.tags,
-        recipe.servings,
-        recipe.image,
-        recipe.time.total,
-        recipe.sourceURL
-      ]);
+        RETURNING *;
+      `, [recipe.name, recipe.description, recipe.instructions, recipe.tags, recipe.servings,
+        recipe.image, recipe.totalTime, recipe.userId]);
 
-      await Promise.all(recipe.ingredients.map(async (ingredient) => {
-        return pool.query(`
-          INSERT INTO ingredient (
-            description,
-            recipe_id
-          ) VALUES ($1, $2)
-        `, [ingredient, rows[0].id]);
-      }));
-
+      await Promise.all(recipe.ingredients.map(async (ingredient) => await pool.query(`
+        INSERT INTO ingredient (description, recipe_id)
+        VALUES ($1, $2)
+      `, [ingredient, rows[0].id])));
     } catch (e) {
       dblog(e);
       dblog(recipe);

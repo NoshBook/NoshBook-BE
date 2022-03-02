@@ -10,6 +10,7 @@ INSERT INTO recipe (name, description, instructions, tags, servings, image, rati
 INSERT INTO ingredient (recipe_id, description) VALUES (2, 'corn');
 INSERT INTO ingredient (recipe_id, description) VALUES (2, 'dog');
 
-
 INSERT INTO day_planner (recipe_id, day, user_id) VALUES (1, 'monday', 1);
 INSERT INTO day_planner (recipe_id, day, user_id) VALUES (2, 'monday', 1); 
+
+INSERT INTO cookbook (recipe_id, user_id) VALUES(1, 1);

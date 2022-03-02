@@ -26,13 +26,13 @@ describe('cookbook routes', () => {
 
     const addRecipeToCookbookRes = await agent
       .post('/api/v1/cookbooks/add/')
-      .send({ userId: 1, recipeId: 1 });
+      .send({ userId: 1, recipeId: 2 });
     const actual = addRecipeToCookbookRes.body;
 
     expect(actual).toEqual({
       id: expect.any(String),
       userId: '1',
-      recipeId: '1',
+      recipeId: '2',
     });
   });
 
