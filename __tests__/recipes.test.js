@@ -14,7 +14,8 @@ const mockRecipe = {
   servings: expect.any(String),
   image: expect.any(String),
   rating: expect.any(Number),
-  ratingsCount: expect.any(Number)
+  ratingsCount: expect.any(Number),
+  sourceUrl: null,
 };
 
 const testRecipe = {
@@ -69,7 +70,9 @@ describe('recipe routes', () => {
 
   it('should correctly update the rating on a recipe', async () => {
     const agent = request.agent(app);
-    await agent.post('/api/v1/users/sessions').send({ username: 'bob', password: 'bob' });
+    await agent
+      .post('/api/v1/users/sessions')
+      .send({ username: 'bob', password: 'bob' });
 
     await agent.post('/api/v1/recipes/3/ratings').send({ rating: 5 });
     const getRes1 = await agent.get('/api/v1/recipes/3');
@@ -109,13 +112,14 @@ describe('recipe routes', () => {
 
     const res = await agent.put('/api/v1/recipes/2').send({ recipe: testRecipe });
     expect(res.body.message).toBe('success');
-    expect(res.body.recipeId).not.toBe('2');
-    expect(res.body.recipeId).not.toBe(2);
+    expect(res.body.id).not.toBe('2');
+    expect(res.body.id).not.toBe(2);
 
     const cookBookRes = await agent.get('/api/v1/cookbooks/1');
 
+    console.log(cookBookRes.body);
     const cbRecipes = await Promise.all(cookBookRes.body.map(async (cb) => {
-      const recipeRes = await agent.get(`/api/v1/recipes/${cb.recipeId}`);
+      const recipeRes = await agent.get(`/api/v1/recipes/${cb.id}`);
       return recipeRes.body;
     }));
     expect(cbRecipes[1]).toEqual(expect.objectContaining(testRecipe));

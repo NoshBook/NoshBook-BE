@@ -30,9 +30,9 @@ describe('cookbook routes', () => {
     const actual = addRecipeToCookbookRes.body;
 
     expect(actual).toEqual({
-      id: expect.any(String),
+      id: '2',
       userId: '1',
-      recipeId: '2',
+      cookbookId: expect.any(String),
     });
   });
 
@@ -49,13 +49,23 @@ describe('cookbook routes', () => {
       expect.arrayContaining([
         {
           id: expect.any(String),
+          ownerId: expect.any(String),
+          cookbookId: expect.any(String),
           userId: '1',
-          recipeId: '1',
+          description: expect.any(String),
+          image: expect.any(String),
+          name: expect.any(String),
+          rating: expect.any(Number),
         },
         {
           id: expect.any(String),
+          ownerId: expect.any(String),
+          cookbookId: expect.any(String),
           userId: '1',
-          recipeId: '2',
+          description: expect.any(String),
+          image: expect.any(String),
+          name: expect.any(String),
+          rating: expect.any(Number),
         },
       ])
     );
@@ -74,8 +84,13 @@ describe('cookbook routes', () => {
     expect(actual).toEqual([
       {
         id: expect.any(String),
+        ownerId: expect.any(String),
+        cookbookId: expect.any(String),
         userId: '1',
-        recipeId: '1',
+        description: expect.any(String),
+        image: expect.any(String),
+        name: expect.any(String),
+        rating: expect.any(Number),
       },
     ]);
   });
