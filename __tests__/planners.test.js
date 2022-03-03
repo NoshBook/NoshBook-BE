@@ -53,8 +53,47 @@ describe('planner routes', () => {
       { id: expect.any(String), recipe_id: '1', day: 'monday', user_id: '1' },
       { id: expect.any(String), recipe_id: '2', day: 'monday', user_id: '1' },
     ];
-    const { body } = await agent.delete('/api/v1/planners/clear');
+    const { body } = await agent.delete('/api/v1/planners/delete');
 
     expect(body).toEqual(seedPlannerData);
+  });
+
+  it('should delete a recipe by id', async () => {
+    const deletedRecipe = [
+      {
+        id: expect.any(String),
+        recipe_id: '2',
+        day: 'monday',
+        user_id: '1',
+      },
+    ];
+    const remainingRecipe = [
+      {
+        day: 'monday',
+        recipes: [
+          {
+            id: 1,
+            recipeId: 1,
+            name: 'banana bread',
+          },
+        ],
+      },
+    ];
+    const { body } = await agent.delete('/api/v1/planners/delete/2');
+    const actualRemaining = await Planner.getRecipesByUser(1);
+
+    expect(body).toEqual(deletedRecipe);
+    expect(actualRemaining).toEqual(remainingRecipe);
+  });
+
+  it('should get a random recipe', async () => {
+    const recipeShape = {
+      id: expect.any(String),
+      name: expect.any(String),
+    };
+
+    const { body } = await agent.get('/api/v1/planners/random');
+
+    expect(body).toEqual(recipeShape);
   });
 });

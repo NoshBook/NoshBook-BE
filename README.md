@@ -1,7 +1,20 @@
-# backend-template
+# NoshBook
 
-A starter template for Express projects at Alchemy Code Lab. We'll be using this in the "Backend / API" portion of the program.
+Find and customize recipes, get your weekly meal plan ready, and build your shopping list all in one app.
 
-## Getting Started
+## Tech Stack
 
-Click "Use this template" to create a new repo with your user as the owner. Then clone down the newly created repo and get hacking!
+- Node.js
+- Express
+- Postgres
+- React
+- Typescript
+
+Frontend repo: https://github.com/NoshBook/NoshBook-FE
+
+### Team
+
+- Dylan Floyd | https://github.com/Dylan-Floyd
+- Zack Lyon | https://github.com/ZackLyon
+- Michael Rider | https://github.com/MikepdXRider
+- Diyana Mendoza | https://github.com/diyanamendoza
