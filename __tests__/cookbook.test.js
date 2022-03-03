@@ -20,13 +20,13 @@ describe('cookbook routes', () => {
     pool.end();
   });
 
-  it('should return an array of recipes', async () => {
+  it('successfully posts a new recipe to cookbook referencing the appropriate user', async () => {
     // login user to retrieve a cookie
     await agent.post('/api/v1/users/sessions').send(mockUser);
 
     const addRecipeToCookbookRes = await agent
       .post('/api/v1/cookbooks/add/')
-      .send({ userId: 1, recipeId: 2 });
+      .send({ recipeId: 2 });
     const actual = addRecipeToCookbookRes.body;
 
     expect(actual).toEqual({
