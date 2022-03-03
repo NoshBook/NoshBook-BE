@@ -100,7 +100,7 @@ describe('cookbook routes', () => {
     await agent.post('/api/v1/users/sessions').send(mockUser);
 
     const { body } = await agent.get(
-      `/api/v1/cookbooks/pagination?page=1&quantity=20`
+      '/api/v1/cookbooks/pagination?page=1&quantity=20'
     );
 
     // Only applicable if more recipes exist in DB for bob
