@@ -1,13 +1,17 @@
-//const request = require('superagent');
-const { deleteElasticIndices, loadElastic, createElasticIndex } = require('./lib/utils/bonsaiElastic.js');
+const request = require('superagent');
+const { deleteElasticIndex, loadElastic, createElasticIndex } = require('./lib/utils/bonsaiElastic.js');
 
+// eslint-disable-next-line no-unused-vars
 async function setupElastic() {
-  await deleteElasticIndices();
+  try {
+    await deleteElasticIndex();
+  } catch (e) {
+    console.log('index already deleted');
+  }
   await createElasticIndex();
   await loadElastic();
 }
 
-/*
 async function getAll() {
   const res = await request
     .get(`${process.env.BONSAI_URL}/noshbook/_search`)
@@ -33,6 +37,5 @@ async function getAll() {
 }
 
 getAll();
-*/
 
-setupElastic();
+//setupElastic();
