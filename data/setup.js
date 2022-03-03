@@ -1,6 +1,7 @@
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const dblog = require('../lib/utils/dblog.js');
+const Recipe = require('../lib/models/Recipe.js');
 
 async function loadTestData(pool) {
   const testDataFile = fs.readFileSync(`${__dirname}/../sql/loadTestData.sql`);
@@ -40,18 +41,8 @@ module.exports = async (pool) => {
   const recipes = JSON.parse(recipeFile.toString());
   await Promise.all(recipes.map(async (recipe) => {
     try {
-      const { rows } = await pool.query(`
-        INSERT INTO recipe (name, description, instructions, tags,
-        servings, image, total_time, owner_id, source_url, is_public)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, true)
-        RETURNING *;
-      `, [recipe.name, recipe.description, recipe.instructions, recipe.tags, recipe.servings,
-        recipe.image, recipe.totalTime, recipe.userId, recipe.sourceURL]);
-
-      await Promise.all(recipe.ingredients.map(async (ingredient) => await pool.query(`
-        INSERT INTO ingredient (description, recipe_id)
-        VALUES ($1, $2)
-      `, [ingredient, rows[0].id])));
+      recipe.isPublic = true;
+      await Recipe.insertOne(null, recipe);
     } catch (e) {
       dblog(e);
       dblog(recipe);
