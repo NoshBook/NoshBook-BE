@@ -46,7 +46,7 @@ describe('recipe routes', () => {
     expect(body[0].rating > body[1].rating > body[2].rating).toBe(true);
     // returning array has no valid ownerId's
     expect(body).toEqual(
-      expect.arrayContaining([{ ...mockRecipe, ownerId: null }])
+      expect.arrayContaining([expect.objectContaining({ ...mockRecipe, ownerId: null })])
     );
   });
 

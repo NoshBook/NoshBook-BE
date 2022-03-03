@@ -10,7 +10,9 @@
     "start": "node -r dotenv/config server.js",
     "start:watch": "nodemon -r dotenv/config server.js",
     "setup-db": "node -r dotenv/config setup-db.js",
-    "setup-heroku": "heroku run npm run setup-db"
+    "setup-elastic": "node -r dotenv/config setupElastic.js",
+    "setup-heroku": "heroku run npm run setup-db",
+    "setup-heroku-elastic": "heroku run npm run setup-elastic"
   },
   "jest": {
     "testEnvironment": "node"
