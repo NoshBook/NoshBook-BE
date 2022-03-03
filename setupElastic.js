@@ -1,7 +1,6 @@
 const request = require('superagent');
 const { deleteElasticIndex, loadElastic, createElasticIndex } = require('./lib/utils/bonsaiElastic.js');
 
-// eslint-disable-next-line no-unused-vars
 async function setupElastic() {
   try {
     await deleteElasticIndex();
@@ -12,7 +11,8 @@ async function setupElastic() {
   await loadElastic();
 }
 
-async function getAll() {
+// eslint-disable-next-line no-unused-vars
+async function test() {
   const res = await request
     .get(`${process.env.BONSAI_URL}/noshbook/_search`)
     .send({
@@ -36,6 +36,4 @@ async function getAll() {
   return ids;
 }
 
-getAll();
-
-//setupElastic();
+setupElastic();
