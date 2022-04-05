@@ -18,3 +18,5 @@ Frontend repo: https://github.com/NoshBook/NoshBook-FE
 - Zack Lyon | https://github.com/ZackLyon
 - Michael Rider | https://github.com/MikepdXRider
 - Diyana Mendoza | https://github.com/diyanamendoza
+
+[![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/dhue.svg)](https://betteruptime.com/?utm_source=status_badge)
